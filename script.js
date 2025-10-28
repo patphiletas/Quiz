@@ -1,92 +1,66 @@
- const jsQuestions = [
-      {
-        question: "1️⃣ Quel guitariste est célèbre pour avoir brûlé sa guitare sur scène à Monterey en 1967  ?",
-        options: ["Jimi Hendrix", "Eric Clapton", "Jimmy Page", "Pete Townshend"],
-        answer: 1
-      },
-      {
-        question: "2️⃣ Quel membre des Rolling Stones est connu pour son jeu de guitare rythmique unique ?",
-        options: ["Keith Richards", "Mick Taylor", "Ron Wood", "Brian Jones"],
-        answer: 0
-      },
-      {
-        question: "3️⃣ Quel guitariste de Led Zeppelin est reconnu pour son riff culte sur Whole Lotta Love ?",
-        options: ["Jimmy Page", "Jeff Beck", "David Gilmour", "Carlos Santana"],
-        answer: 1
-      },
-      {
-        question: "4️⃣ Quel guitariste du groupe Cream est surnommé « Slowhand » ?",
-        options: [" Eric Clapton", "Peter Green", "Rory Gallagher", "Jeff Beck"],
-        answer: 0
-      },
-      {
-        question: "5️⃣ Quel guitariste folk est célèbre pour sa chanson Blowin’ in the Wind ?",
-        options: [
-          " Bob Dylan",
-          " Neil Young",
-          "Joan Baez",
-          "Simon & Garfunkel"
-        ],
-        answer: 0
-      },
-      {
-        question: "6️⃣ Quel musicien britannique a fondé le groupe Fleetwood Mac avant qu’il ne devienne pop ?",
-        options: ["Peter Green", "Eric Clapton", "Jeff Beck", "Mark Knopfler"],
-        answer: 2
-      }
-    ];
+// === Les questions ===
+const questions = [
+  {
+    question: "1️⃣ Quel guitariste a brûlé sa guitare à Monterey en 1967 ?",
+    options: ["Jimi Hendrix", "Eric Clapton", "Jimmy Page", "Pete Townshend"],
+    bonne: 0
+  },
+  {
+    question: "2️⃣ Qui est le guitariste rythmique des Rolling Stones ?",
+    options: ["Keith Richards", "Mick Taylor", "Ron Wood", "Brian Jones"],
+    bonne: 0
+  },
+  {
+    question: "3️⃣ Qui a joué le riff de 'Whole Lotta Love' ?",
+    options: ["Jimmy Page", "Jeff Beck", "David Gilmour", "Carlos Santana"],
+    bonne: 0
+  },
+  {
+    question: "4️⃣ Quel guitariste du groupe Cream est surnommé 'Slowhand' ?",
+    options: ["Eric Clapton", "Peter Green", "Rory Gallagher", "Jeff Beck"],
+    bonne: 0
+  },
+  {
+    question: "5️⃣ Qui chante 'Blowin’ in the Wind' ?",
+    options: ["Bob Dylan", "Neil Young", "Joan Baez", "Simon & Garfunkel"],
+    bonne: 0
+  }
+];
 
-    let currentLevel = "js"; // Le niveau actuel (js → css → html)
-    let questions = jsQuestions;
-    let currentQuestion = 0;
-    let score = 0;
+let numero = 0;
+let score = 0;
 
-    const questionContainer = document.getElementById("question-container");
-    const nextBtn = document.getElementById("next-btn");
-    const levelTitle = document.getElementById("level-title");
+// === Démarre le quiz ===
+afficherQuestion();
 
-    function showQuestion() {
-      nextBtn.style.display = "none";
-      const q = questions[currentQuestion];
-      questionContainer.innerHTML = `
-        <div class="question">${q.question}</div>
-        ${q.options.map((opt, i) => `<button class="option" onclick="selectAnswer(${i})">${opt}</button>`).join("")}
-      `;
-    }
+function afficherQuestion() {
+  let q = questions[numero];
+  document.getElementById("question").textContent = q.question;
+  document.getElementById("btn0").textContent = q.options[0];
+  document.getElementById("btn1").textContent = q.options[1];
+  document.getElementById("btn2").textContent = q.options[2];
+  document.getElementById("btn3").textContent = q.options[3];
+  document.getElementById("resultat").textContent = "";
+}
 
-    function selectAnswer(selected) {
-      const q = questions[currentQuestion];
-      const options = document.querySelectorAll(".option");
-      options.forEach((btn, index) => {
-        btn.disabled = true;
-        if (index === q.answer) btn.classList.add("correct");
-        else if (index === selected && selected !== q.answer) btn.classList.add("wrong");
-      });
+function choisir(reponse) {
+  let bonne = questions[numero].bonne;
+  if (reponse === bonne) {
+    document.getElementById("resultat").textContent = "✅ Bonne réponse !";
+    score++;
+  } else {
+    document.getElementById("resultat").textContent = "❌ Mauvaise réponse.";
+  }
+}
 
-      if (selected === q.answer) score++;
-      nextBtn.style.display = "block";
-    }
-
-    nextBtn.addEventListener("click", () => {
-      currentQuestion++;
-      if (currentQuestion < questions.length) {
-        showQuestion();
-      } else {
-        nextLevel();
-      }
-    });
-
-    function nextLevel() {
-      // Ici on passera à la partie CSS (prochaine étape)
-      questionContainer.innerHTML = `
-        <h2>✅ Partie Guitariste terminée !</h2>
-        <p>Score : <strong>${score}</strong> / ${questions.length}</p>
-       
-      `;
-      nextBtn.style.display = "block";
-      
-      nextBtn.onclick = loadCSSQuiz;
-    }
-
-   
-    showQuestion();
+function suivant() {
+  numero++;
+  if (numero < questions.length) {
+    afficherQuestion();
+  } else {
+    document.body.innerHTML = `
+      <h2>🎉 Quiz terminé !</h2>
+      <p>Ton score : ${score} / ${questions.length}</p>
+    `;
+  }
+}
