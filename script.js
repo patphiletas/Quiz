@@ -55,18 +55,4 @@ function choisir(reponse) {
 }
 
 
-function suivant() {
-  numero++;
-  if (numero < questions.length) {
-    afficherQuestion();
-  } else {
-    document.body.innerHTML = `
-      <h2>🎉 Quiz terminé !</h2>
-      <p>Ton score : ${score} / ${questions.length}</p>
-      <button id="debutquiz" onclick="suivant()">🔁 Recommencer le quiz</button>`
-      document.body.append(debutquiz);
-      debutquiz.addEventListener("click", () => {
-      location.reload();
-      })
-    }
-  }
+
