@@ -3,7 +3,7 @@
 // On récupère le tableau 'questions' depuis le fichier questions.js
 import { questions } from "./questions.js";
 
-
+//document.body.appenChild()
 
 
 // === Variables de suivi ===
@@ -34,6 +34,7 @@ function afficherQuestion() {
   // Réactiver les boutons
   const boutons = document.querySelectorAll(".option");
   boutons.forEach(btn => (btn.disabled = false));
+ //document.body.appenChild(boutons)
 
  
 
@@ -46,6 +47,7 @@ function choisir(reponse) {
   const boutons = document.querySelectorAll(".option");
 
   boutons.forEach(btn => (btn.disabled = true));
+  //document.body.appenChild(boutons)
 
   if (reponse === bonne) {
     document.getElementById("resultat").textContent = "Bonne réponse 😎";
@@ -62,20 +64,21 @@ function choisir(reponse) {
 // === Passe à la question suivante ===
 
 
-
 function suivant() {
   numero++;
   if (numero < questions.length) {
     afficherQuestion();
   } else {
-
-    //fin du quiz : on affiche le score
     document.body.innerHTML = `
-      <h2>🎉 Quiz terminé 🥳</h2>
+      <h2>🎉 Quiz terminé !</h2>
       <p>Ton score : ${score} / ${questions.length}</p>
-    `;
+      <button id="debutquiz" onclick="suivant()">🔁 Recommencer le quiz</button>`
+      document.body.appendChild(debutquiz);
+      debutquiz.addEventListener("click", () => {
+      location.reload();
+      })
+    }
   }
-}
 
 window.choisir = choisir;
 window.suivant = suivant;
