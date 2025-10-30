@@ -1,13 +1,15 @@
 // === Importation des données ===
 
 // On récupère le tableau 'questions' depuis le fichier questions.js
-import { questions } from "./questions.js";
+import { quiz_musique } from "./questions.js";
 
-//document.body.appenChild()
+let firstquestion = 0;
+
+console.log(quiz_musique[questions])
 
 
 // === Variables de suivi ===
-let numero = 0;
+/* let numero = 0;
 let score = 0;
 
 // === Démarre le quiz ===
@@ -23,6 +25,7 @@ function afficherQuestion() {
   document.getElementById("btn1").textContent = q.options[1];
   document.getElementById("btn2").textContent = q.options[2];
   document.getElementById("btn3").textContent = q.options[3];
+  
 
   
   document.getElementById("resultat").textContent = "";
@@ -82,3 +85,4 @@ function suivant() {
 
 window.choisir = choisir;
 window.suivant = suivant;
+ */
