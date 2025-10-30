@@ -23,6 +23,8 @@ function afficherQuestion() {
   document.getElementById("btn1").textContent = q.options[1];
   document.getElementById("btn2").textContent = q.options[2];
   document.getElementById("btn3").textContent = q.options[3];
+
+  
   document.getElementById("resultat").textContent = "";
 
 
@@ -42,6 +44,7 @@ function choisir(reponse) {
   let bonne = questions[numero].bonne;
 
   const boutons = document.querySelectorAll(".option");
+
   boutons.forEach(btn => (btn.disabled = true));
 
   if (reponse === bonne) {
