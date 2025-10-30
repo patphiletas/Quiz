@@ -1,18 +1,19 @@
 body {
 
   font-family: Arial, sans-serif;
-  background-color: #fafafa;
+  background-color: #c39191;
   text-align: center;
   margin-top: 50px;
   color: #222;
 }
+
 
 h1 {
   color: #2a4d69;
 }
 
 #quiz {
-  background-color: white;
+  background-color: rgb(228, 196, 196);
   display: inline-block;
   padding: 20px 40px;
   border-radius: 15px;
@@ -26,9 +27,12 @@ button {
   width: 250px;
   border: none;
   border-radius: 8px;
-  background-color: #4CAF50;
+  background-color: #1d431f;
   color: white;
-  cursor: pointer;
+  cursor: 
+  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' height='32' width='32'><text y='24' font-size='24'>🎸</text></svg>") 16 16, auto;
+
+
   font-size: 16px;
 }
 
