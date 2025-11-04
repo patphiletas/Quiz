@@ -1,7 +1,7 @@
 
 // On récupère le tableau 'questions' depuis le fichier questions.js
 import { quiz_musique } from "./questions.js";
-// let score = 0
+let score = 0
 let currentQuestionIndex =0;
 
 const quizContainer = document.getElementById("quiz-container");
@@ -19,43 +19,60 @@ function loadQuestion(){
 reponsePossible.innerHTML = '';
 const currentQuestion = quiz_musique.questions[currentQuestionIndex];
 textQuestion.innerText = currentQuestion.question
-
+nextButton.disabled = true; // on désactive le bouton “Suivant” tant qu’aucune réponse n’est choisie
 currentQuestion.options.forEach(option => {
   const option_btn = document.createElement('button');
-
-  option_btn.innerText = option;
-  option_btn.classList.add('options');
-  reponsePossible.appendChild(option_btn);
-  option_btn.addEventListener('click', () =>{
-    if(option === quiz_musique.questions){
-      option_btn.style.backgroundColor = "green";
-    }else{
-      option_btn.style.backgroundColor ='red'
-    }
-  })
-});
-
-}
-//  Ajouter un écouteur d'événements pour le bouton "Suivant"
-loadQuestion()
-
+  option_btn.disabled = false
+})
 nextButton.addEventListener('click', ()=> {
    // Incrémenter l'index de la question
 currentQuestionIndex++
-
-
  // Vérifier s'il reste des questions
  if (currentQuestionIndex < quiz_musique.questions.length){
   loadQuestion();
  } else {
-question.innerText = ' La Partie est terminée 🥳';  // Si plus de questions, indiquer la fin du quiz
-options.innerHTML ='';  // Effacer les options
+   options.innerHTML ='';  // Effacer les options
+   question.innerText = ' La Partie est terminée 🥳';  // Si plus de questions, indiquer la fin du quiz
 //  Cacher le bouton suivant
 nextButton.style.display = 'none' 
 replayButton.style.display = 'inline-block'
  }
 
 })
+}
+
+  // option_btn.innerText = option;
+  // option_btn.classList.add('options');
+  // reponsePossible.appendChild(option_btn);
+  // option_btn.addEventListener('click', () =>{
+
+  //   if(option === currentQuestion.bonne_reponse){
+  //     option_btn.style.backgroundColor = "green";
+  //     score++
+  //   }else{
+  //     option_btn.style.backgroundColor ='red'
+      
+     
+  //   }
+  //   nextButton.disabled = false;  // Réactiver le bouton "Suivant" après le choix
+  //   // on a recuperer tous les button est desactiver aussi,
+  //   const allButtons = reponsePossible.querySelectorAll("button");
+  //   allButtons.forEach((btn) => (btn.disabled = true))
+
+    
+    
+   
+
+
+//   })
+// });
+
+// }
+
+//  Ajouter un écouteur d'événements pour le bouton "Suivant"
+// loadQuestion()
+
+
 function Rejouer (){
 
 
@@ -67,6 +84,31 @@ replayButton.style.display = 'none'
 loadQuestion()
 
 })}
+
+function checkAnswer(){
+  option_btn.innerText = option;
+  option_btn.classList.add('options');
+  reponsePossible.appendChild(option_btn);
+  option_btn.addEventListener('click', () =>{
+
+    
+    if(option === currentQuestion.bonne_reponse){
+      option_btn.style.backgroundColor = "green";
+      score++
+    }else{
+      option_btn.style.backgroundColor ='red'
+      
+     
+    }
+    
+  })
+  nextButton.disabled = false;  // Réactiver le bouton "Suivant" après le choix
+  // on a recuperer tous les button est desactiver aussi,
+  const allButtons = reponsePossible.querySelectorAll("button");
+  allButtons.forEach((btn) => (btn.disabled = true))
+
+}  
+
 
 // function checkAnswer (){
 //   const allButtons = options.querySelectorAll("button");
@@ -80,8 +122,8 @@ loadQuestion()
 
 
 // }
-// checkAnswer()
+checkAnswer();
 // Charger la première question au chargement de la page
-// loadQuestion();
+loadQuestion();
 
 
