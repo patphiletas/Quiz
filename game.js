@@ -55,7 +55,9 @@ replayButton.addEventListener('click', () =>{Rejouer()});
 
 function checkAnswer(option_btn, currentQuestion){
   const allButtons = reponsePossible.querySelectorAll("button");
+  //  onne peut peut cliquer sur d’autres options,
   allButtons.forEach((btn) => (btn.disabled = true))
+      //  comparer le texte cliqué avec d'autre option  si condition est vria on change la color
     if(option_btn.innerText === currentQuestion.bonne_reponse){
       option_btn.style.backgroundColor = "green";
       score++
