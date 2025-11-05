@@ -1,4 +1,3 @@
-
 // On récupère le tableau 'questions' depuis le fichier questions.js
 import { quiz_musique } from "./questions.js";
 let score = 0
@@ -61,7 +60,10 @@ function checkAnswer(){
 function Rejouer (){
 // Fonction pour réinitialiser le quiz
 replayButton.addEventListener('click', () =>{
-let currentQuestionIndex = 0
+currentQuestionIndex = 0
+score = 0,
+
+scoreDisplay.innerText = `Score : 0 / ${quiz_musique.questions.length}`
 nextButton.style.display = 'inline-block'
 replayButton.style.display = 'none'
 loadQuestion()
@@ -69,5 +71,3 @@ loadQuestion()
 
 //checkAnswer();
 loadQuestion();
-
-

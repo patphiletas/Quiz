@@ -1,0 +1,91 @@
+/* ----- Style général ----- */
+/* body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+} */
+
+/* ----- Conteneur principal ----- */
+/* #quiz-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+} */
+
+/* ----- Question ----- */
+/* #question-text {
+  font-size: 18px;
+  margin-bottom: 20px;
+} */
+
+/* ----- Options ----- */
+/* #options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+} */
+
+/* .options {
+  background-color: #eee;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.options:hover:not(:disabled) {
+  background-color: #ddd;
+} */
+
+/* ----- Boutons ----- */
+/* .button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#next-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#next-button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+#replay-button {
+  background-color: #2196F3;
+  color: white;
+} */
+
+/* ----- Réponse correcte / incorrecte ----- */
+/* .correct {
+  background-color: #4CAF50 !important;
+  color: white;
+}
+
+.wrong {
+  background-color: #f44336 !important;
+  color: white;
+} */
