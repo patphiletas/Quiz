@@ -1,5 +1,5 @@
 /* ----- Style général ----- */
-/* body {
+body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   color: #333;
@@ -9,10 +9,10 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-} */
+}
 
 /* ----- Conteneur principal ----- */
-/* #quiz-container {
+#quiz-container {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
@@ -20,22 +20,22 @@
   width: 90%;
   max-width: 400px;
   text-align: center;
-} */
+}
 
 /* ----- Question ----- */
-/* #question-text {
+#question-text {
   font-size: 18px;
   margin-bottom: 20px;
-} */
+}
 
 /* ----- Options ----- */
-/* #options-container {
+#options-container {
   display: flex;
   flex-direction: column;
   gap: 10px;
-} */
+}
 
-/* .options {
+.options {
   background-color: #eee;
   border: none;
   padding: 10px;
@@ -46,10 +46,10 @@
 
 .options:hover:not(:disabled) {
   background-color: #ddd;
-} */
+}
 
 /* ----- Boutons ----- */
-/* .button-container {
+.button-container {
   margin-top: 20px;
   display: flex;
   justify-content: center;
@@ -77,10 +77,10 @@ button {
 #replay-button {
   background-color: #2196F3;
   color: white;
-} */
+}
 
 /* ----- Réponse correcte / incorrecte ----- */
-/* .correct {
+.correct {
   background-color: #4CAF50 !important;
   color: white;
 }
@@ -88,4 +88,4 @@ button {
 .wrong {
   background-color: #f44336 !important;
   color: white;
-} */
+}
