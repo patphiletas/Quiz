@@ -47,7 +47,7 @@ body {
   padding: 10px; 
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s; 
 }
 /* cursor change la coulour pendant que on clique sur une reponse */
  .options:hover:not(:disabled) {
